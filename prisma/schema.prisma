@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model carros {
+  id       Int      @id @default(autoincrement())
+  modelo   String   @db.VarChar(20)
+  placa    String   @db.VarChar(10)
+  cor      String   @db.VarChar(10)
+  telefone String   @db.VarChar(20)
+  ordens   ordens[]
+}
+
+model funcionarios {
+  id              Int               @id @default(autoincrement())
+  nome            String            @db.VarChar(100)
+  telefone        String            @db.VarChar(20)
+  ordens_servicos ordens_servicos[]
+}
+
+model ordens {
+  id              Int               @id @default(autoincrement())
+  cliente         String            @db.VarChar(20)
+  status          String            @default("pendente") @db.VarChar(20)
+  data            DateTime          @default(now()) @db.Timestamp(6)
+  carro_id        Int
+  carros          carros            @relation(fields: [carro_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ordens_fk4")
+  ordens_servicos ordens_servicos[]
+}
+
+model ordens_servicos {
+  id             Int          @id @default(autoincrement())
+  ordem_id       Int
+  servico_id     Int
+  funcionario_id Int
+  ordens         ordens       @relation(fields: [ordem_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ordens_servicos_fk1")
+  servicos       servicos     @relation(fields: [servico_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ordens_servicos_fk2")
+  funcionarios   funcionarios @relation(fields: [funcionario_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "ordens_servicos_fk3")
+}
+
+model servicos {
+  id              Int               @id @default(autoincrement())
+  nome            String            @db.VarChar(30)
+  valor           Float
+  ordens_servicos ordens_servicos[]
+}
