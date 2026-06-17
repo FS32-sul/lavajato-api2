@@ -2,7 +2,7 @@ const { PRISMACLIENT } = require("../utils");
 
 async function buscar() {
     try {
-        return await PRISMACLIENT.servicos.findMany({
+        return await PRISMACLIENT.servicos.findMany({ //SELECT * FROM servicos ORDER BY id DESC;
             orderBy: {
                 id: "asc"
             }
@@ -17,7 +17,7 @@ async function buscar() {
 
 async function criar(dados) {
     try {
-        const req = await PRISMACLIENT.servicos.create({
+        const req = await PRISMACLIENT.servicos.create({ // INSERT INTO servicos .....
             data: dados
         });
 
@@ -43,7 +43,7 @@ async function criar(dados) {
 
 async function editar(dados, id) {
     try {
-        const req = await PRISMACLIENT.servicos.update({
+        const req = await PRISMACLIENT.servicos.update({ // UPDATE servicos .... WHERE id = ..;
             data: dados,
             where: {
                 id: Number(id)
@@ -72,7 +72,7 @@ async function editar(dados, id) {
 
 async function deletar(id) {
     try {
-        const req = await PRISMACLIENT.servicos.delete({
+        const req = await PRISMACLIENT.servicos.delete({ // DELETE from servicos WHERE id = ..;
             where: {
                 id: Number(id)
             }

@@ -1,0 +1,1204 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API lavajato",
+    "description": "Description",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/carros/": {
+      "get": {
+        "tags": [
+          "Carros"
+        ],
+        "summary": "Listar todos os carros",
+        "description": "Retorna uma lista com todos os carros cadastrados no sistema",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Carros"
+        ],
+        "summary": "Criar novo carro",
+        "description": "Cria um novo carro no sistema",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados do carro a ser criado",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "required": {
+                  "type": "array",
+                  "example": [
+                    "modelo",
+                    "placa",
+                    "cor",
+                    "telefone"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "modelo": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Modelo do carro"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Fiat Uno"
+                        }
+                      }
+                    },
+                    "placa": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Placa do veículo"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "ABC-1234"
+                        }
+                      }
+                    },
+                    "cor": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Cor do carro"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Prata"
+                        }
+                      }
+                    },
+                    "telefone": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Telefone do proprietário"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "(11) 99999-0000"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/carros/{id}": {
+      "put": {
+        "tags": [
+          "Carros"
+        ],
+        "summary": "Atualizar carro",
+        "description": "Atualiza os dados de um carro específico pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do carro a ser atualizado",
+            "example": 1
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados atualizados do carro",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "modelo": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Modelo do carro"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Fiat Uno"
+                        }
+                      }
+                    },
+                    "placa": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Placa do veículo"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "ABC-1234"
+                        }
+                      }
+                    },
+                    "cor": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Cor do carro"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Prata"
+                        }
+                      }
+                    },
+                    "telefone": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Telefone do proprietário"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "(11) 99999-0000"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Carros"
+        ],
+        "summary": "Deletar carro",
+        "description": "Remove um carro do sistema pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do carro a ser deletado",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/servicos/": {
+      "get": {
+        "tags": [
+          "Serviços"
+        ],
+        "summary": "Listar todos os serviços",
+        "description": "Retorna uma lista com todos os serviços cadastrados no sistema",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Serviços"
+        ],
+        "summary": "Criar novo serviço",
+        "description": "Cria um novo serviço no sistema com nome e valor",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados do serviço a ser criado",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "required": {
+                  "type": "array",
+                  "example": [
+                    "nome",
+                    "valor"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 30
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Nome do serviço"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Lavagem Completa"
+                        }
+                      }
+                    },
+                    "valor": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "number"
+                        },
+                        "format": {
+                          "type": "string",
+                          "example": "float"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Valor do serviço em reais"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 150.5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/servicos/{id}": {
+      "put": {
+        "tags": [
+          "Serviços"
+        ],
+        "summary": "Atualizar serviço",
+        "description": "Atualiza os dados de um serviço específico pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do serviço a ser atualizado",
+            "example": 1
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados atualizados do serviço",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 30
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Nome do serviço"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "Lavagem Completa Plus"
+                        }
+                      }
+                    },
+                    "valor": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "number"
+                        },
+                        "format": {
+                          "type": "string",
+                          "example": "float"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Valor do serviço em reais"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 180
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Serviços"
+        ],
+        "summary": "Deletar serviço",
+        "description": "Remove um serviço do sistema pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do serviço a ser deletado",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/funcionarios/": {
+      "get": {
+        "tags": [
+          "Funcionários"
+        ],
+        "summary": "Listar todos os funcionários",
+        "description": "Retorna uma lista com todos os funcionários cadastrados no sistema",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Funcionários"
+        ],
+        "summary": "Criar novo funcionário",
+        "description": "Cria um novo funcionário no sistema",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados do funcionário a ser criado",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "required": {
+                  "type": "array",
+                  "example": [
+                    "nome",
+                    "telefone"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 100
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Nome do funcionário"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "João Silva"
+                        }
+                      }
+                    },
+                    "telefone": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Telefone do funcionário"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "(11) 99999-0000"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/funcionarios/{id}": {
+      "put": {
+        "tags": [
+          "Funcionários"
+        ],
+        "summary": "Atualizar funcionário",
+        "description": "Atualiza os dados de um funcionário específico pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do funcionário a ser atualizado",
+            "example": 1
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados atualizados do funcionário",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "nome": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 100
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Nome do funcionário"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "João Silva"
+                        }
+                      }
+                    },
+                    "telefone": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Telefone do funcionário"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "(11) 99999-0000"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Funcionários"
+        ],
+        "summary": "Deletar funcionário",
+        "description": "Remove um funcionário do sistema pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID do funcionário a ser deletado",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ordens/": {
+      "get": {
+        "tags": [
+          "Ordens"
+        ],
+        "summary": "Listar todas as ordens",
+        "description": "Retorna uma lista com todas as ordens de serviço cadastradas no sistema",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ordens"
+        ],
+        "summary": "Criar nova ordem",
+        "description": "Cria uma nova ordem de serviço no sistema",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados da ordem a ser criada",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "required": {
+                  "type": "array",
+                  "example": [
+                    "cliente",
+                    "carro_id"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "cliente": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Nome do cliente"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "João Silva"
+                        }
+                      }
+                    },
+                    "carro_id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "ID do carro associado à ordem"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Status da ordem (padrão: pendente)"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "pendente"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ordens/{id}": {
+      "put": {
+        "tags": [
+          "Ordens"
+        ],
+        "summary": "Atualizar ordem",
+        "description": "Atualiza os dados de uma ordem específica pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da ordem a ser atualizada",
+            "example": 1
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados atualizados da ordem",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "cliente": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Nome do cliente"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "João Silva"
+                        }
+                      }
+                    },
+                    "status": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "string"
+                        },
+                        "maxLength": {
+                          "type": "number",
+                          "example": 20
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "Status da ordem"
+                        },
+                        "example": {
+                          "type": "string",
+                          "example": "em progresso"
+                        }
+                      }
+                    },
+                    "carro_id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "ID do carro associado à ordem"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ordens"
+        ],
+        "summary": "Deletar ordem",
+        "description": "Remove uma ordem do sistema pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da ordem a ser deletada",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ordens-servicos/": {
+      "get": {
+        "tags": [
+          "Ordens Serviços"
+        ],
+        "summary": "Listar todas as relações ordem-serviço",
+        "description": "Retorna uma lista com todas as relações entre ordens e serviços cadastradas no sistema",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Ordens Serviços"
+        ],
+        "summary": "Criar nova relação ordem-serviço",
+        "description": "Associa um serviço a uma ordem de serviço com um funcionário responsável",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados da relação ordem-serviço a ser criada",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "required": {
+                  "type": "array",
+                  "example": [
+                    "ordem_id",
+                    "servico_id",
+                    "funcionario_id"
+                  ],
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "ordem_id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "ID da ordem"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    },
+                    "servico_id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "ID do serviço"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    },
+                    "funcionario_id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "ID do funcionário responsável"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/ordens-servicos/{id}": {
+      "put": {
+        "tags": [
+          "Ordens Serviços"
+        ],
+        "summary": "Atualizar relação ordem-serviço",
+        "description": "Atualiza os dados de uma relação ordem-serviço específica pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da relação ordem-serviço a ser atualizada",
+            "example": 1
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Dados atualizados da relação ordem-serviço",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "example": "object"
+                },
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "ordem_id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "ID da ordem"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    },
+                    "servico_id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "ID do serviço"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    },
+                    "funcionario_id": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "example": "integer"
+                        },
+                        "description": {
+                          "type": "string",
+                          "example": "ID do funcionário responsável"
+                        },
+                        "example": {
+                          "type": "number",
+                          "example": 1
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Ordens Serviços"
+        ],
+        "summary": "Deletar relação ordem-serviço",
+        "description": "Remove uma relação ordem-serviço do sistema pelo ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "ID da relação ordem-serviço a ser deletada",
+            "example": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}

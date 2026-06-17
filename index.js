@@ -7,6 +7,9 @@ const funcionariosRoutes = require("./src/routes/funcionariosRoutes");
 const ordensRoutes = require("./src/routes/ordensRoutes");
 const ordensServicosRoutes = require("./src/routes/ordensServicosRoutes");
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./src/docs/documentacao.json');
+
 const app = express();
 
 //Middlewares
@@ -15,8 +18,10 @@ app.use(cors());
 
 //Rotas
 app.get("/", (req, res) => {
-    res.send("Boas vindas");
+    res.redirect("/docs");
 });
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use("/carros", carrosRoutes);
 app.use("/servicos", servicosRoutes);
